@@ -9,9 +9,18 @@ public class Simulation {
     public Simulation(List<Mower> mowers) {
         this.mowers = mowers;
         mowers.forEach(mower -> {
-            if (Lawn.occupiedPositions.contains(mower.position)) throw new IllegalArgumentException();
+            validateMowerPosition(mower.position);
             Lawn.occupiedPositions.add(mower.position);
         });
+    }
+
+    private void validateMowerPosition(Position position) {
+        if (Lawn.occupiedPositions.contains(position)
+                || position.getAbsciss() > Lawn.maxAbsciss || position.getAbsciss() < 0
+                || position.getOrdinate() > Lawn.maxOrdinate || position.getOrdinate() < 0) {
+            System.out.println("Mower initially outside of lawn limits or at the same position of another mower.");
+            throw new IllegalArgumentException();
+        }
     }
 
     public void run() {

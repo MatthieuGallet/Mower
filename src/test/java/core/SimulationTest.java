@@ -38,6 +38,19 @@ public class SimulationTest {
         Mower mower2 = new Mower(1, 1, Orientation.S);
         thrown.expect(IllegalArgumentException.class);
         new Simulation(Arrays.asList(mower1, mower2));
+    }
 
+    @Test
+    public void ShouldRejectMowerOutsideOfLawnNE() {
+        Mower mower1 = new Mower(6, 1, Orientation.N);
+        thrown.expect(IllegalArgumentException.class);
+        new Simulation(Arrays.asList(mower1));
+    }
+
+    @Test
+    public void ShouldRejectMowerOutsideOfLawnSW() {
+        Mower mower1 = new Mower(-1, 1, Orientation.N);
+        thrown.expect(IllegalArgumentException.class);
+        new Simulation(Arrays.asList(mower1));
     }
 }
