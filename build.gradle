@@ -1,0 +1,20 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClass = 'Main'
+}
+
+group 'BlablaCar'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation group: 'junit', name: 'junit', version: '4.13'
+}
