@@ -9,8 +9,8 @@ public class Simulation {
     public Simulation(List<Mower> mowers) {
         this.mowers = mowers;
         mowers.forEach(mower -> {
-            validateMowerPosition(mower.position);
-            Lawn.occupiedPositions.add(mower.position);
+            validateMowerPosition(mower.getPosition());
+            Lawn.occupiedPositions.add(mower.getPosition());
         });
     }
 
@@ -30,6 +30,7 @@ public class Simulation {
             newThread.start();
             threads.add(newThread);
         });
+        // Ensure all the mowers have completed their instructions before ending the simulation.
         threads.forEach(thread -> {
             try {
                 thread.join();

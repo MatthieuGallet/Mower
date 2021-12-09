@@ -38,7 +38,7 @@ public class MowerTest {
         Mower mower = new Mower(2, 2, Orientation.W, Arrays.asList(Instruction.F));
         Lawn.occupiedPositions.add(new Position(2,2));
         mower.run();
-        assertEquals(new Position (1, 2), mower.position);
+        assertEquals(new Position (1, 2), mower.getPosition());
     }
 
     @Test
@@ -46,7 +46,7 @@ public class MowerTest {
         Mower mower = new Mower(2, 2, Orientation.S, Arrays.asList(Instruction.F, Instruction.L, Instruction.F));
         Lawn.occupiedPositions.add(new Position(2,2));
         mower.run();
-        assertEquals(new Position(3, 1), mower.position);
+        assertEquals(new Position(3, 1), mower.getPosition());
     }
 
     @Test
@@ -54,7 +54,7 @@ public class MowerTest {
         Mower mower = new Mower(5, 5, Orientation.N, Arrays.asList(Instruction.F, Instruction.R, Instruction.F));
         Lawn.occupiedPositions.add(new Position(5,5));
         mower.run();
-        assertEquals(new Position(5, 5), mower.position);
+        assertEquals(new Position(5, 5), mower.getPosition());
     }
 
     @Test
@@ -63,7 +63,7 @@ public class MowerTest {
         Lawn.occupiedPositions.add(new Position(2,2));
         Lawn.occupiedPositions.add(new Position(2,3));
         mower.run();
-        assertEquals(new Position (2, 2), mower.position);
+        assertEquals(new Position (2, 2), mower.getPosition());
         assertEquals(2, Lawn.occupiedPositions.size());
     }
 }

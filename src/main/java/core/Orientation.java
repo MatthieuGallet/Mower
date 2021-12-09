@@ -1,10 +1,10 @@
 package core;
 
 public enum Orientation {
-    N,
-    E,
-    W,
-    S;
+    N,  // North
+    E,  // East
+    W,  // West
+    S;  // South
 
     Orientation turnLeft() {
         switch (this) {

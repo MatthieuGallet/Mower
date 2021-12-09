@@ -1,7 +1,7 @@
 package core;
 
 public enum Instruction {
-    L,
-    R,
-    F
+    L,  // Turn left
+    R,  // Turn right
+    F   // Move forward
 }

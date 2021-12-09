@@ -21,7 +21,7 @@ public class InputReader {
         while (sc.hasNextLine()) {
             Mower newMower = new Mower(sc.nextInt(), sc.nextInt(), Orientation.valueOf(sc.next()));
             mowers.add(newMower);
-            sc.nextLine();
+            sc.nextLine(); // Needed to skip the rest of the first line.
             String instructionsString = sc.nextLine();
             newMower.setInstructions(parseInstructionString(instructionsString));
         }
